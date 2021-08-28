@@ -14,10 +14,13 @@ export default function SearchForm({ state, dispatch }) {
 
   async function reloadCaseLookUp() {
     const cases = await getCaseData(state);
-
     dispatch({
       type: "reload-cases",
       value: cases,
+    });
+    dispatch({
+      type: "select-defendant",
+      value: null,
     });
 
     stepper.scrollToStep(2);
